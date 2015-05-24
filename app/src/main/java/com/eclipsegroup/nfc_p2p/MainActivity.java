@@ -68,22 +68,26 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Create
     }
 
     void processIntent(Intent intent) {
+        /* In caso di messaggio ricevuto questo viene processato da questo metodo */
+
         Parcelable[] rawMsgs = intent.getParcelableArrayExtra(
                 NfcAdapter.EXTRA_NDEF_MESSAGES);
 
-        // only one message sent during the beam, the only one needed to be read
         NdefMessage msg = (NdefMessage) rawMsgs[0];
 
+        /* Aggiornamento EditText a schermo con il testo ricevuto */
         txtContent.setText(new String(msg.getRecords()[0].getPayload()));
     }
 
     @Override
     public NdefMessage createNdefMessage(NfcEvent event) {
         /* L' NdefMessage del return di questo metodo viene spedito al dispositivo vicino */
+        /* Il metodo si attiva in automatico quando l'utente attiva l'Android Beam */
 
-        String text = txtContent.getText().toString();
-        String strType = "application/vnd.com.dorel.eclipsegroup.nfcp2p";
+        String text = txtContent.getText().toString(); /* Lettura testo dalla EditText a schermo */
+        String strType = "application/vnd.com.dorel.eclipsegroup.nfcp2p"; /* impostazione mimeType */
         byte[] type = strType.getBytes(Charset.forName("US-ASCII"));
+
         NdefRecord ndefRecord = new NdefRecord(NdefRecord.TNF_MIME_MEDIA, type, new byte[0],
                 text.getBytes(Charset.forName("US-ASCII")));
         NdefRecord[] ndefRecords = new NdefRecord[]{ ndefRecord };
