@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NFC - P2P</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Title">This app allows you to send a text message over NFC to another device</string>
+    <string name="textHint">Insert text to send</string>
+
+</resources>

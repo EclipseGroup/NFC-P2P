@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC - P2P</string>
+    <string name="Title">Questa applicazione permette di spedire un messaggio via NFC  ad un altro dispositivo.</string>
+    <string name="textHint">Inserire testo da spedire</string>
+    <string name="action_settings">Impostazioni</string>
+</resources>
